@@ -1,0 +1,19 @@
+<div class="login-container">
+    <div class="logotipo">
+        <img src="assets/layout/images/logoDark.png" alt="logo" style="width: 150px;">
+    </div>
+    <form >
+      <input type="text" pInputText [(ngModel)]="Email"  name="Email" placeholder="Email"/>
+      <p-password [(ngModel)]="Password"   name="Password" placeholder="Senha" [feedback]="false" [toggleMask]="true"></p-password>
+
+    </form>
+    <!-- <a href="/forgot-password">Forgot password?</a> -->
+    <div class="login">
+      <p-button label="Log in" (onClick)="logarFake()"></p-button>
+    </div>
+    <div *ngIf="senhaInvalida" class="invalid-login-animation">
+      <p style="color: red; margin-top: 10px; font-size: 15px;">
+        Login Inválido!
+      </p>
+    </div>
+</div>
