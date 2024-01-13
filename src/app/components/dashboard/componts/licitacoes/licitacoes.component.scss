@@ -19,8 +19,8 @@ input[type="text"] {
 
 /* Remove a borda inferior quando o input está focado */
 input[type="text"]:focus {
-  border-bottom: 2px solid #F07D90; /* Cor da linha quando focado */
-  box-shadow: 0 1px 0 0 #F07D90; /* Sombra opcional para destacar o foco */
+  border-bottom: 2px solid #437D81; /* Cor da linha quando focado */
+  box-shadow: 0 1px 0 0 #437D81; /* Sombra opcional para destacar o foco */
   outline: none; /* Remove o contorno padrão */
 }
 input[type="number"] {
@@ -35,8 +35,8 @@ input[type="number"] {
 
 /* Remove a borda inferior quando o input está focado */
 input[type="number"]:focus {
-  border-bottom: 2px solid #F07D90; /* Cor da linha quando focado */
-  box-shadow: 0 1px 0 0 #F07D90; /* Sombra opcional para destacar o foco */
+  border-bottom: 2px solid #437D81; /* Cor da linha quando focado */
+  box-shadow: 0 1px 0 0 #437D81; /* Sombra opcional para destacar o foco */
   outline: none; /* Remove o contorno padrão */
 }
 /* Estilo para o label para alinhá-lo corretamente com o input */
