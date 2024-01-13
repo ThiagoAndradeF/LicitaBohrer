@@ -39,48 +39,49 @@
 
 
 <p-dialog header="Adicionar Nova Licitação" [(visible)]="ShowDialogAdicionar" [responsive]="true" [style]="{width: '50vw'}" [maximizable]="true">
-  <div class="form-text">
-      <div>
+  <div class="form-dialog">
+      <div class= "iten-dialog">
           <label for="newName">Tipo:</label>
           <p-dropdown [options]="ListTipoLicitacao" [(ngModel)]="_tipoLicitacao"  [showClear]="true" placeholder="Tipo de Licitação"></p-dropdown>
       </div>
-      <div>
+      <div class= "iten-dialog">
           <label for="newName">Portal:</label>
           <p-dropdown [options]="ListPortais" [(ngModel)]="_portal"  [showClear]="true" placeholder="Portal Responsável"></p-dropdown>
       </div>
-      <div>
+      <div class= "iten-dialog">
           <label for="newName">Numero Edital:</label>
           <input class="textInput"  type="number" pInputText [(ngModel)]="_numeroEdital"/>
       </div>
-      <div>
+      <div class= "iten-dialog">
           <label for="newPrice">Pregão:</label>
           <input class="textInput"  type="number" pInputText [(ngModel)]="_pregao"/>
       </div>
-      <div>
-          <label for="newStock">Data/Hora Abertura Propostas:</label>
+      <div class= "iten-dialog">
+          <label for="newStock">Abertura Propostas:</label>
           <!-- <input class="textInput" type="text" pInputText [(ngModel)]="_dataAberturaProposta"/> -->
           <p-calendar [(ngModel)]="_dataAberturaProposta" [showTime]="true" appendTo="body"></p-calendar>
 
       </div>
-      <div>
-        <label for="newStock">Data/Hora Fechamento Propostas:</label>
+      <div class= "iten-dialog">
+        <label for="newStock">Fechamento Propostas:</label>
         <p-calendar [(ngModel)]="_dataLimiteProposta" [showTime]="true" appendTo="body"></p-calendar>
 
       </div>
-      <div>
+      <div class= "iten-dialog">
           <label for="newStock">Data Publicação Edital:</label>
 
-          <p-calendar [(ngModel)]="_dataPublicacaoEdital" appendTo="body"></p-calendar>
+          <p-calendar [(ngModel)]="_dataPublicacaoEdital" appendTo="body" class="custom-calendar"></p-calendar>
 
       </div>
-      <div>
+      <div class= "iten-dialog">
           <label for="newStock">Arquivos Licitação:</label>
           <p-fileUpload chooseIcon="pi pi-cloud-upload" mode="basic" name="documentos[]" url="URL_PARA_ENVIAR_OS_ARQUIVOS"  multiple-accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document" ></p-fileUpload>
       </div>
 
-
       <!-- <p-fileUpload name="myfile[]" url="./upload.php" ></p-fileUpload> -->
 
   </div>
-  <button type="button" pButton label="Salvar"  style="float: right;"></button>
+  <div class="button-container">
+    <button type="button" pButton label="Salvar"></button>
+  </div>
 </p-dialog>

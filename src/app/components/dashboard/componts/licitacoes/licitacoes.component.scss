@@ -62,3 +62,48 @@ label {
 .ui-dialog .ui-dialog-content {
   overflow: visible !important;
 }
+.form-dialog {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-dialog div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-dialog label {
+  flex: 0 0 30%;
+  text-align: right;
+  margin-right: 10px;
+
+}
+
+.form-dialog .input-field {
+  flex: 1;
+}
+
+.form-dialog .textInput {
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+.custom-calendar .p-datepicker td {
+  padding: 2px; /* Espaçamento reduzido dentro de cada célula */
+}
+.iten-dialog{
+
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Cor preta com baixa opacidade */
+  border-radius: 4px; /* Bordas arredondadas para suavidade */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.textInput {
+    text-align: right; /* Alinha o texto à direita */
+}
