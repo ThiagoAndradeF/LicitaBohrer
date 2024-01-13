@@ -13,8 +13,9 @@ import { DialogModule } from 'primeng/dialog';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { DropdownModule } from 'primeng/dropdown';
 import { MultiSelectModule } from 'primeng/multiselect';
-import { QrReaderComponent } from './componts/qr-reader/qr-reader.component';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { LicitacoesComponent } from './componts/licitacoes/licitacoes.component';
+import { LicitacoesModule } from './componts/licitacoes/licitacoes.module';
 
 
 @NgModule({
@@ -32,9 +33,10 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
         KeyFilterModule,
         DropdownModule,
         MultiSelectModule,
-        ZXingScannerModule
+        ZXingScannerModule,
+        LicitacoesModule
 
     ],
-    declarations: [DashboardComponent, QrReaderComponent]
+    declarations: [DashboardComponent]
 })
 export class DashboardModule { }
