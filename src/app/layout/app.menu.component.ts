@@ -17,7 +17,7 @@ export class AppMenuComponent implements OnInit {
             {
                 label: 'DASHBOARD',
                 items: [
-                    { label: 'Registro Licitações', icon: 'pi pi-book', routerLink: [''] },
+                    { label: 'Registro', icon: 'pi pi-book', routerLink: [''] },
                 ]
             },
 

@@ -9,6 +9,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
 import {  FileUploadModule } from 'primeng/fileupload';
+import { AccordionModule } from 'primeng/accordion';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import {  FileUploadModule } from 'primeng/fileupload';
     ReactiveFormsModule,
     CalendarModule,
     FileUploadModule,
+    AccordionModule
   ],
   exports: [
     LicitacoesComponent

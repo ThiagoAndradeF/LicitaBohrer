@@ -16,7 +16,7 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { LicitacoesComponent } from './componts/licitacoes/licitacoes.component';
 import { LicitacoesModule } from './componts/licitacoes/licitacoes.module';
-
+import { AccordionModule } from 'primeng/accordion';
 
 @NgModule({
     imports: [
@@ -34,7 +34,8 @@ import { LicitacoesModule } from './componts/licitacoes/licitacoes.module';
         DropdownModule,
         MultiSelectModule,
         ZXingScannerModule,
-        LicitacoesModule
+        LicitacoesModule,
+        AccordionModule
 
     ],
     declarations: [DashboardComponent],

@@ -104,6 +104,7 @@
     <div class="dialog-item">
       <label>Status:</label>
       <div class="dialog-value" *ngIf="SelectedLicitacao.status ==='Cotação Pendente'" style="color: red;">{{SelectedLicitacao.status}}</div>
+      <div class="dialog-value" *ngIf="SelectedLicitacao.status ==='Documentação Pendente'" style="color:rgb(220, 187, 0) ;">{{SelectedLicitacao.status}}</div>
     </div>
     <div class="dialog-item">
       <label>Tipo:</label>
@@ -136,6 +137,41 @@
     </div>
   </div>
   <div class="dialog-footer">
-    <p-button label="Baixar Documentação" icon="pi pi-download" class="p-button-raised p-button-rounded p-button-secondary" ></p-button>
+    <p-button label="Baixar Anexos" icon="pi pi-download" class="p-button-raised p-button-rounded p-button-secondary" ></p-button>
+  </div>
+</p-dialog>
+<!-- DIALOG LICITAÇÃO -->
+<p-dialog header="Cotaçao" [(visible)]="ShowDialogCotacao" [responsive]="true" [style]="{width: '50vw'}" [maximizable]="true">
+  <div style="margin-top: 10px;">
+    <span style="margin-right: 10px;">
+      <p-button label="Adicionar Item" icon="pi pi-plus" (onClick)="adicionarItem()"></p-button>
+    </span>
+
+    <p-button label="Baixar Anexos" icon="pi pi-download" class="p-button-raised p-button-rounded p-button-secondary" ></p-button>
+  </div>
+
+  <div *ngIf="SelectedLicitacao" class="dialog-content">
+    <div class="dialog-item">
+      <label>Proposta:</label>
+      <div class="dialog-value">{{SelectedLicitacao.numeroEdital}} / {{SelectedLicitacao.pregao}}</div>
+    </div>
+
+
+  </div>
+  <div class="dialog-item">
+    <p-accordion class="full-width-accordion">
+      <p-accordionTab *ngFor="let item of itens; let i = index" header="Item {{ i + 1 }}" class="acordion-item">
+        <div>Formulário de cadastro não implementado do item {{ i + 1 }}</div>
+      </p-accordionTab>
+    </p-accordion>
+  </div>
+  <div class="dialog-footer">
+    <div class="button-container">
+      <span style="margin-right: 10px;">
+        <p-button label="Salvar" icon="pi pi-save" class="p-button-raised p-button-rounded p-button-secondary"></p-button>
+      </span>
+
+      <button type="button" pButton label="Finalizar Cotação" (click)="FinalizarCotacao()"></button>
+    </div>
   </div>
 </p-dialog>

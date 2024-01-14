@@ -52,12 +52,23 @@ export class LicitacoesComponent implements OnInit {
   public SelectedLicitacao?:LicitacaoDto;
   public ShowDialogCotacao:boolean = false;
   public ShowDialogDetalhes:boolean = false;
+  public ArrayItensLicitacao:number[] = [];
+  itens: any[] = [];
+
 
   constructor(private datePipe: DatePipe, private filterService: FilterService){
 
   }
   ngOnInit(){
 
+  }
+  adicionarItem() {
+    const novoItem = {
+    nome: `Nome
+    do Item ${this.itens.length + 1}`,
+    // Outras propriedades do item podem ser adicionadas aqui
+    };
+    this.itens.push(novoItem);
   }
 
 
@@ -109,5 +120,13 @@ export class LicitacoesComponent implements OnInit {
     this.SelectedLicitacao = licitacao;
     this.ShowDialogDetalhes = true;
   }
+  public FinalizarCotacao(){
+    if(this.SelectedLicitacao)
+    this.SelectedLicitacao.status = "Documentação Pendente";
+    this.ShowDialogCotacao = false;
+  }
 
+  public AdicionarProposta(){
+    this.ArrayItensLicitacao.push(1);
+  }
 }

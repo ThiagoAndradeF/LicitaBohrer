@@ -7,3 +7,10 @@
   display: inline-block;
   float: right;
 }
+:host{
+  ::ng-deep {
+    p-accordiontab{
+      width: 400px;
+    }
+  }
+}

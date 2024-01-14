@@ -173,3 +173,9 @@ label {
     border-top: 1px solid #eaeaea;
     background:#ffffff;
   }
+  .full-width-accordion {
+    width: 100%;
+  }
+  .dialog-item {
+    width: 100%; /* this ensures the child elements can expand fully */
+  }
