@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard.component';
 import { ChartModule } from 'primeng/chart';
@@ -37,6 +37,9 @@ import { LicitacoesModule } from './componts/licitacoes/licitacoes.module';
         LicitacoesModule
 
     ],
-    declarations: [DashboardComponent]
+    declarations: [DashboardComponent],
+    providers: [
+      DatePipe // Adicione o DatePipe aqui
+    ]
 })
 export class DashboardModule { }

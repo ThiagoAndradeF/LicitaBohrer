@@ -5,6 +5,7 @@ export class LicitacaoDto {
   tipoLicitacao?:string;
   dataPublicacao?:Date;
   portal?:string;
-  dataEntregaProposta?:Date;
-  dataFechamento?:Date;
+  dataAberturaProposta?:Date;
+  dataFechamentoProposta?:Date;
+  dataPublicacaoEdital?:Date;
 }

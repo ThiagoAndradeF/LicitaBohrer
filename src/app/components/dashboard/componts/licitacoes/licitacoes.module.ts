@@ -11,7 +11,6 @@ import { CalendarModule } from 'primeng/calendar';
 import {  FileUploadModule } from 'primeng/fileupload';
 
 
-
 @NgModule({
   declarations: [
     LicitacoesComponent
@@ -26,7 +25,7 @@ import {  FileUploadModule } from 'primeng/fileupload';
     FormsModule,
     ReactiveFormsModule,
     CalendarModule,
-    FileUploadModule
+    FileUploadModule,
   ],
   exports: [
     LicitacoesComponent
