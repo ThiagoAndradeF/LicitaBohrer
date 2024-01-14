@@ -4,9 +4,7 @@
     <div class="body-button">
       <p-button label="Adicionar Licitação"  icon="pi pi-plus" (onClick)="showAdicionarNovaLicitacao()"></p-button>
     </div>
-    <div>
-      <p-calendar [(ngModel)]="filtroDataAbertura" (onSelect)="filtrarPorData()" dateFormat="dd/mm/yy"></p-calendar>
-    </div>
+
   </div>
 
   <p-table
@@ -26,16 +24,21 @@
             <th pSortableColumn="licitacao.pregao">Pregão</th>
             <th pSortableColumn="licitacao.dataAberturaProposta">Abertura</th>
             <th pSortableColumn="licitacao.dataFechamentoProposta">Fechamento</th>
+            <th></th>
         </tr>
     </ng-template>
 
     <ng-template pTemplate="body" let-licitacao>
         <tr>
-            <td>{{ licitacao.tipoLicitacao}}</td>
-            <td>{{ licitacao.numeroEdital }}</td>
-            <td>{{ licitacao.pregao }}</td>
-            <td>{{ formatDate(licitacao.dataAberturaProposta) }}</td>
-            <td>{{ formatDate(licitacao.dataFechamentoProposta) }} </td>
+          <td>{{ licitacao.tipoLicitacao}}</td>
+          <td>{{ licitacao.numeroEdital }}</td>
+          <td>{{ licitacao.pregao }}</td>
+          <td>{{ formatDate(licitacao.dataAberturaProposta) }}</td>
+          <td>{{ formatDate(licitacao.dataFechamentoProposta) }} </td>
+          <td>
+            <button pButton pRipple icon="pi pi-money-bill" class="p-button-rounded p-button-success mr-2" (click)="Cotar(licitacao)"></button>
+            <button pButton pRipple icon="pi pi-eye" class="p-button-rounded p-button-warning" (click)="Visualizar(licitacao)"></button>
+          </td>
         </tr>
     </ng-template>
 
@@ -82,10 +85,57 @@
           <label for="newStock">Arquivos Licitação:</label>
           <p-fileUpload chooseIcon="pi pi-cloud-upload" mode="basic" name="documentos[]" url="URL_PARA_ENVIAR_OS_ARQUIVOS"  multiple-accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document" ></p-fileUpload>
       </div>
-
-
   </div>
   <div class="button-container">
     <button type="button" pButton label="Salvar" (click)="adicionarLicitacao()"></button>
+  </div>
+</p-dialog>
+
+<!-- DIALOG COTAÇÃO -->
+
+
+
+
+
+
+<!-- DIALOG LICITAÇÃO -->
+<p-dialog header="Detalhes Licitação" [(visible)]="ShowDialogDetalhes" [responsive]="true" [style]="{width: '50vw'}" [maximizable]="true">
+  <div *ngIf="SelectedLicitacao" class="dialog-content">
+    <div class="dialog-item">
+      <label>Status:</label>
+      <div class="dialog-value" *ngIf="SelectedLicitacao.status ==='Cotação Pendente'" style="color: red;">{{SelectedLicitacao.status}}</div>
+    </div>
+    <div class="dialog-item">
+      <label>Tipo:</label>
+      <div class="dialog-value">{{SelectedLicitacao.tipoLicitacao}}</div>
+    </div>
+    <div class="dialog-item">
+      <label>Portal:</label>
+      <div class="dialog-value">{{SelectedLicitacao.portal}}</div>
+    </div>
+    <!-- ... restante das linhas ... -->
+    <div class="dialog-item">
+      <label>Numero Edital:</label>
+      <div class="dialog-value">{{SelectedLicitacao.numeroEdital}}</div>
+    </div>
+    <div class="dialog-item">
+      <label>Pregão:</label>
+      <div class="dialog-value">{{SelectedLicitacao.pregao}}</div>
+    </div>
+    <div class="dialog-item">
+      <label>Fechamento Propostas:</label>
+      <div class="dialog-value">{{formatDate(SelectedLicitacao.dataFechamentoProposta)}}</div>
+    </div>
+    <div class="dialog-item">
+      <label>Abertura Propostas:</label>
+      <div class="dialog-value">{{ formatDate(SelectedLicitacao.dataAberturaProposta) }}</div>
+    </div>
+    <div class="dialog-item">
+      <label>Publicação Edital:</label>
+      <div class="dialog-value">{{formatDateSemHora(SelectedLicitacao.dataPublicacaoEdital)}}</div>
+    </div>
+  </div>
+  <div class="dialog-footer">
+    <p-button label="Baixar Documentação" icon="pi pi-download" class="p-button-raised p-button-rounded p-button-secondary" ></p-button>
   </div>
 </p-dialog>

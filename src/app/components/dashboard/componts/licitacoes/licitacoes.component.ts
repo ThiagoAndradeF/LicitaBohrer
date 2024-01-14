@@ -28,11 +28,10 @@ export class LicitacoesComponent implements OnInit {
   public _dataLimiteProposta?:Date;
   public _dataPublicacaoEdital?:Date;
   public _portal?:string;
-
+  public _status?:string;
   public _valueDateInitial?:Date;
   //Variáveis controle
   public ShowDialogAdicionar:boolean = false;
-  public filtroDataAbertura?: Date;
   // Listas
   public ListLicitacoes:LicitacaoDto[] = [];
   public ListTipoLicitacao:string[] = ['Aquisição', 'Pesquisa de Preços'];
@@ -48,7 +47,11 @@ export class LicitacoesComponent implements OnInit {
     'Portal de Compras Amazonas',
     'Pernambuco Integrado',
     'BBM – Bolsa Brasileira de Mercadorias'
-]
+  ]
+  //Dialog visualizar e cotar
+  public SelectedLicitacao?:LicitacaoDto;
+  public ShowDialogCotacao:boolean = false;
+  public ShowDialogDetalhes:boolean = false;
 
   constructor(private datePipe: DatePipe, private filterService: FilterService){
 
@@ -57,26 +60,17 @@ export class LicitacoesComponent implements OnInit {
 
   }
 
-  public filtrarPorData() {
-    if (this.filtroDataAbertura ) {
-      this.ListLicitacoes = this.ListLicitacoes.filter(licitacao =>{ debugger
-        if(licitacao.dataAberturaProposta &&  this.filtroDataAbertura){
-          var  dataFiltro= new Date(licitacao.dataAberturaProposta).toDateString()
-          debugger
-          var dataCompara =  this.filtroDataAbertura.toDateString()
-          debugger
-          dataFiltro === dataCompara;
-        }
-      }
-
-      );}
-      var listaLiscitacoes = this.ListLicitacoes
-      debugger
-    }
 
 
-  formatDate(data: Date): string  {
+  formatDate(data: Date | undefined): string  {
     var dataFormatada = this.datePipe.transform(data, 'dd/MM/yyyy HH:mm', 'UTC');
+    if(typeof dataFormatada === 'string')
+      return dataFormatada;
+    else
+      return 'Data não informada'
+  }
+  formatDateSemHora(data: Date | undefined): string  {
+    var dataFormatada = this.datePipe.transform(data, 'dd/MM/yyyy', 'UTC');
     if(typeof dataFormatada === 'string')
       return dataFormatada;
     else
@@ -94,6 +88,7 @@ export class LicitacoesComponent implements OnInit {
     novaLicitacao.dataAberturaProposta = this._dataAberturaProposta;
     novaLicitacao.numeroEdital = this._numeroEdital;
     novaLicitacao.dataPublicacaoEdital = this._dataPublicacaoEdital;
+    novaLicitacao.status  = "Cotação Pendente";
     this.NewLicitacao = novaLicitacao;
 
     this.ShowDialogAdicionar = false;
@@ -105,6 +100,14 @@ export class LicitacoesComponent implements OnInit {
     this._dataLimiteProposta= this._valueDateInitial;
     this._dataPublicacaoEdital= this._valueDateInitial;
     this._portal='';
+  }
+  public Cotar(licitacao : LicitacaoDto){
+    this.SelectedLicitacao = licitacao;
+    this.ShowDialogCotacao = true;
+  }
+  public Visualizar(licitacao : LicitacaoDto){
+    this.SelectedLicitacao = licitacao;
+    this.ShowDialogDetalhes = true;
   }
 
 }
